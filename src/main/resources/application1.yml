@@ -1,0 +1,27 @@
+server:
+  port: 9000
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/MuseDB
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: postgresql
+  jpa:
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate:
+      c3p0:
+        min-size: 5
+        max-size: 20
+        acquire_increment: 5
+        timeout: 1800
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: create
+
+check-user-scopes: false
