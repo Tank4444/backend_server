@@ -24,7 +24,7 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter {
         info.put("account_locked",user.isAccountNonLocked());
         info.put("account_expired",user.isAccountNonExpired());
         info.put("credentials_expired",user.isCredentialsNonExpired());
-        info.put("roles",user.getRoles());
+        info.put("authorities",user.getAuthorities());
 
         DefaultOAuth2AccessToken customAccessToken = new DefaultOAuth2AccessToken(accessToken);
         customAccessToken.setAdditionalInformation(info);
